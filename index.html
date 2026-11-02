@@ -24,7 +24,10 @@
     <div class="enter-rule"></div>
     <p class="enter-khmer">សិរីមង្គល · អាពាហ៍ពិពាហ៍</p>
 
-    <!-- Guest name shown when ?guest= is in the URL -->
+    <!-- Resembling the image: text above the gold pill -->
+    <p class="enter-invite-text">សូមគោរពអញ្ជើញ</p>
+
+    <!-- Guest name shown in a gold pill (like the image) -->
     <div class="enter-guest" id="enterGuest"></div>
 
     <button id="enterBtn" class="enter-btn" type="button">
@@ -530,31 +533,26 @@ const CONFIG = {
 
 /* ============================================================
    GUEST NAME FROM URL
-   - Shows on the "Open Invitation" screen
+   - Shows on the "Open Invitation" screen (Gold Pill)
    - Shows on the Invitation card
    ============================================================ */
 (function () {
   const p = new URLSearchParams(location.search).get('guest');
-  if (!p) return;
-
-  const name = decodeURIComponent(p).replace(/[-_]/g, ' ');
+  
+  // Default text if no guest is found in the URL
+  let name = 'ភ្ញៀវកិត្តិយស'; 
+  if (p) {
+    name = decodeURIComponent(p).replace(/[-_]/g, ' ');
+  }
 
   /* 1) Invitation card (existing) */
   const guestPill = document.getElementById('guestName');
   if (guestPill) guestPill.textContent = name;
 
-  /* 2) Open Invitation (enter) screen — "Dear" style */
+  /* 2) Open Invitation (enter) screen — Gold Pill style */
   const enterGuest = document.getElementById('enterGuest');
   if (enterGuest) {
-    const label = document.createElement('span');
-    label.className = 'guest-eyebrow';
-    label.textContent = 'ជូនចំពោះ · Dear';
-
-    const nameEl = document.createElement('span');
-    nameEl.className = 'guest-name';
-    nameEl.textContent = name;
-
-    enterGuest.append(label, nameEl);
+    enterGuest.textContent = name;
   }
 })();
 
