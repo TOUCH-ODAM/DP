@@ -24,11 +24,14 @@
     <div class="enter-rule"></div>
     <p class="enter-khmer">សិរីមង្គល · អាពាហ៍ពិពាហ៍</p>
 
-    <!-- Resembling the image: text above the gold pill -->
-    <p class="enter-invite-text">សូមគោរពអញ្ជើញ</p>
-
-    <!-- Guest name shown in a gold pill (like the image) -->
-    <div class="enter-guest" id="enterGuest"></div>
+    <!-- NEW: Window / Plaque Style Guest Name -->
+    <div class="enter-window-wrap">
+      <div class="enter-window">
+        <span class="window-label">ជូនចំពោះ · TO</span>
+        <span class="window-name" id="enterGuestName">ភ្ញៀវកិត្តិយស</span>
+        <div class="window-shine"></div>
+      </div>
+    </div>
 
     <button id="enterBtn" class="enter-btn" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
@@ -533,26 +536,26 @@ const CONFIG = {
 
 /* ============================================================
    GUEST NAME FROM URL
-   - Shows on the "Open Invitation" screen (Gold Pill)
+   - Shows on the "Open Invitation" screen (Window Style)
    - Shows on the Invitation card
    ============================================================ */
 (function () {
   const p = new URLSearchParams(location.search).get('guest');
   
-  // Default text if no guest is found in the URL
-  let name = 'ភ្ញៀវកិត្តិយស'; 
+  // Default fallback if no guest is provided
+  let name = 'ភ្ញៀវកិត្តិយស';
   if (p) {
     name = decodeURIComponent(p).replace(/[-_]/g, ' ');
   }
 
-  /* 1) Invitation card (existing) */
+  /* 1) Invitation card */
   const guestPill = document.getElementById('guestName');
   if (guestPill) guestPill.textContent = name;
 
-  /* 2) Open Invitation (enter) screen — Gold Pill style */
-  const enterGuest = document.getElementById('enterGuest');
-  if (enterGuest) {
-    enterGuest.textContent = name;
+  /* 2) Open Invitation (enter) screen — Window style */
+  const enterGuestName = document.getElementById('enterGuestName');
+  if (enterGuestName) {
+    enterGuestName.textContent = name;
   }
 })();
 
@@ -588,7 +591,7 @@ function syncSoundBtn(){
 syncSoundBtn();
 
 /* ============================================================
-   VIDEO DIAGNOSTICS — logs to console for debugging on mobile
+   VIDEO DIAGNOSTICS
    ============================================================ */
 introVideo.addEventListener('loadedmetadata', () => {
   console.log('[intro] metadata loaded — duration:', introVideo.duration, 's');
@@ -657,7 +660,6 @@ function startIntroVideo(){
       console.log('[intro] play() resolved — sound on');
     }).catch((err) => {
       console.warn('[intro] play() rejected:', err && err.name);
-      /* Fall back to muted playback if sound was blocked */
       introVideo.muted = true;
       introVideo.play().catch(() => endIntro());
     });
