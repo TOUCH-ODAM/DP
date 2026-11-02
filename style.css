@@ -54,9 +54,11 @@ html{
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  max-width: 100%;
 }
 body{
   margin: 0;
+  max-width: 100%;
   font-family: var(--font-body);
   color: var(--ink);
   background: var(--bg);
@@ -65,7 +67,10 @@ body{
   text-rendering: optimizeLegibility;
   touch-action: manipulation;
 }
-body.unlocked{ overflow: auto; }
+body.unlocked{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
 body::after{
   content: '';
@@ -80,9 +85,6 @@ button{ font-family: inherit; }
 
 /* ============================================================
    ✦ ENTER SCREEN — OPENING INVITATION ✦
-   Matches the reference sketch:
-   top border → Khmer title → names → rings → subtitle
-   → gold banner → guest → date/location → button → lotus → bottom border
    ============================================================ */
 #enterScreen{
   position: fixed; inset: 0; z-index: 2000;
@@ -144,7 +146,7 @@ button{ font-family: inherit; }
 .enter-khmer-title{
   font-family: var(--font-km-display);
   font-weight: 700;
-  font-size: clamp(14px, 3.6vw, 18px);
+  font-size: clamp(15px, 3.6vw, 18px);
   color: var(--gold-deep);
   letter-spacing: .06em;
   line-height: 1.8;
@@ -156,7 +158,7 @@ button{ font-family: inherit; }
 .enter-names{
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(20px, 5.4vw, 30px);
+  font-size: clamp(22px, 5.4vw, 30px);
   line-height: 1.24;
   letter-spacing: .06em;
   color: var(--ink);
@@ -185,7 +187,7 @@ button{ font-family: inherit; }
 /* Khmer subtitle */
 .enter-subtitle{
   font-family: var(--font-km);
-  font-size: clamp(11.5px, 3vw, 13.5px);
+  font-size: clamp(12px, 3vw, 13.5px);
   color: var(--ink-2);
   letter-spacing: .08em;
   line-height: 1.9;
@@ -223,7 +225,7 @@ button{ font-family: inherit; }
 .banner-khmer{
   font-family: var(--font-km-display);
   font-weight: 700;
-  font-size: clamp(13px, 3.4vw, 16px);
+  font-size: clamp(14px, 3.4vw, 16px);
   color: var(--gold-dark);
   letter-spacing: .04em;
   line-height: 1.5;
@@ -231,7 +233,7 @@ button{ font-family: inherit; }
 .banner-en{
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(11px, 2.8vw, 13.5px);
+  font-size: clamp(11.5px, 2.8vw, 13.5px);
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--gold-dark);
@@ -256,7 +258,7 @@ button{ font-family: inherit; }
 .guest-label{
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--gold-deep);
@@ -281,7 +283,7 @@ button{ font-family: inherit; }
   margin-top: 16px;
   font-family: var(--font-display);
   font-style: italic;
-  font-size: clamp(12px, 3vw, 14px);
+  font-size: clamp(12.5px, 3vw, 14px);
   color: var(--ink-2);
   letter-spacing: .06em;
   opacity: 0;
@@ -289,7 +291,7 @@ button{ font-family: inherit; }
 }
 .enter-meta .dot{ color: var(--gold); font-size: 10px; }
 
-/* Hand-pointer CTA button (gray / purple) */
+/* Hand-pointer CTA button */
 .enter-btn{
   display: inline-flex;
   align-items: center;
@@ -301,7 +303,7 @@ button{ font-family: inherit; }
   background: linear-gradient(135deg, #A6A3BC 0%, #8E8AA8 100%);
   color: #fff;
   font-family: var(--font-display);
-  font-size: 12.5px;
+  font-size: clamp(12.5px, 3vw, 13px);
   font-weight: 500;
   letter-spacing: .08em;
   box-shadow:
@@ -327,7 +329,7 @@ button{ font-family: inherit; }
   margin-top: 12px;
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 10.5px;
+  font-size: clamp(10px, 1.6vw, 11px);
   letter-spacing: .22em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -479,7 +481,7 @@ button{ font-family: inherit; }
   color: #F5EFE4; pointer-events: none;
 }
 .intro-eyebrow{
-  font-size: clamp(8.5px, 1.1vw, 10px);
+  font-size: clamp(9.5px, 1.1vw, 10px);
   letter-spacing: clamp(.35em, 1.4vw, .5em);
   text-transform: uppercase;
   color: rgba(245,239,228,.75); font-weight: 500;
@@ -501,13 +503,13 @@ button{ font-family: inherit; }
 }
 .intro-sub{
   font-family: var(--font-km);
-  font-size: clamp(11.5px, 1.4vw, 13px);
+  font-size: clamp(12px, 1.4vw, 13px);
   letter-spacing: .06em;
   color: rgba(245,239,228,.75); line-height: 1.9;
   animation: introUp 1s .7s both var(--ease);
 }
 .intro-date{
-  font-size: clamp(9.5px, 1.2vw, 11px);
+  font-size: clamp(10px, 1.2vw, 11px);
   letter-spacing: clamp(.35em, 1.4vw, .5em);
   text-transform: uppercase;
   color: var(--accent-soft); font-weight: 600;
@@ -545,7 +547,7 @@ button{ font-family: inherit; }
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   color: #F5EFE4;
-  font-size: clamp(9px, 1.2vw, 11px);
+  font-size: clamp(10px, 1.2vw, 11px);
   font-weight: 500;
   letter-spacing: clamp(.14em, 1vw, .18em);
   text-transform: uppercase;
@@ -596,7 +598,7 @@ button{ font-family: inherit; }
 
 .cover-top{
   display: flex; justify-content: space-between; align-items: center;
-  font-size: clamp(8.5px, 1.1vw, 10px);
+  font-size: clamp(9px, 1.1vw, 10px);
   letter-spacing: clamp(.3em, 1.2vw, .42em);
   text-transform: uppercase;
   color: rgba(245,239,228,.7);
@@ -627,7 +629,7 @@ button{ font-family: inherit; }
   display: flex; align-items: center; flex-wrap: wrap;
   gap: clamp(6px, 1.2vw, 14px);
   margin-top: clamp(18px, 3vw, 32px);
-  font-size: clamp(9px, 1.2vw, 11px);
+  font-size: clamp(9.5px, 1.2vw, 11px);
   letter-spacing: clamp(.24em, 1.2vw, .42em);
   text-transform: uppercase;
   color: rgba(245,239,228,.75);
@@ -636,7 +638,7 @@ button{ font-family: inherit; }
 .cover-dot{ color: var(--accent-soft); font-size: 9px; }
 .cover-khmer{
   font-family: var(--font-km);
-  font-size: clamp(11px, 1.5vw, 13px);
+  font-size: clamp(12px, 1.5vw, 13px);
   color: rgba(245,239,228,.55);
   margin: clamp(12px, 2vw, 18px) 0 0;
   letter-spacing: .05em;
@@ -695,7 +697,7 @@ button{ font-family: inherit; }
   background: var(--line-2);
 }
 .sec-eyebrow{
-  font-size: clamp(9px, 1.1vw, 10.5px);
+  font-size: clamp(10px, 1.1vw, 10.5px);
   letter-spacing: clamp(.28em, 1.2vw, .4em);
   text-transform: uppercase;
   color: var(--ink-3); font-weight: 500;
@@ -728,7 +730,7 @@ button{ font-family: inherit; }
 .side-label{
   position: fixed; top: 50%; z-index: 3;
   writing-mode: vertical-rl; text-orientation: mixed;
-  font-size: clamp(8.5px, 1vw, 10px);
+  font-size: clamp(9px, 1vw, 10px);
   letter-spacing: clamp(.4em, 1.4vw, .55em);
   text-transform: uppercase;
   color: var(--ink-3); pointer-events: none; opacity: .6;
@@ -739,7 +741,7 @@ button{ font-family: inherit; }
 .hero-eyebrow{
   display: inline-flex; align-items: center;
   gap: clamp(8px, 1.4vw, 14px);
-  font-size: clamp(8.5px, 1.1vw, 10px);
+  font-size: clamp(10px, 1.1vw, 10px);
   letter-spacing: clamp(.28em, 1.2vw, .42em);
   text-transform: uppercase;
   color: var(--ink-2); font-weight: 500;
@@ -768,14 +770,14 @@ button{ font-family: inherit; }
 }
 .hero-khmer{
   font-family: var(--font-km);
-  font-size: clamp(11.5px, 1.6vw, 16px);
+  font-size: clamp(12px, 1.6vw, 16px);
   color: var(--ink-2);
   margin: clamp(14px, 2vw, 22px) 0 0;
   letter-spacing: .03em;
   line-height: 1.9;
 }
 .hero-date{
-  font-size: clamp(9.5px, 1.2vw, 11px);
+  font-size: clamp(10px, 1.2vw, 11px);
   letter-spacing: clamp(.28em, 1.2vw, .42em);
   text-transform: uppercase;
   color: var(--accent); font-weight: 600;
@@ -805,7 +807,7 @@ button{ font-family: inherit; }
 }
 .cd-lbl{
   margin-top: clamp(4px, .8vw, 10px);
-  font-size: clamp(7px, 1vw, 9px);
+  font-size: clamp(8px, 1vw, 9px);
   letter-spacing: clamp(.14em, 1vw, .32em);
   color: var(--ink-3);
   text-transform: uppercase;
@@ -813,7 +815,7 @@ button{ font-family: inherit; }
 }
 .hero-invite{
   font-family: var(--font-km);
-  font-size: clamp(11.5px, 1.5vw, 13px);
+  font-size: clamp(12px, 1.5vw, 13px);
   color: var(--ink-3);
   margin: clamp(20px, 3vw, 36px) 0 0;
   line-height: 1.9;
@@ -824,7 +826,7 @@ button{ font-family: inherit; }
   transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center;
   gap: 10px;
-  font-size: clamp(8px, 1vw, 9px);
+  font-size: clamp(8.5px, 1vw, 9px);
   letter-spacing: clamp(.3em, 1.2vw, .4em);
   text-transform: uppercase;
   color: var(--ink-3);
@@ -961,7 +963,7 @@ button{ font-family: inherit; }
 }
 .person-role{
   display: block;
-  font-size: clamp(8.5px, 1.1vw, 10px);
+  font-size: clamp(9.5px, 1.1vw, 10px);
   letter-spacing: clamp(.28em, 1.2vw, .44em);
   text-transform: uppercase;
   color: var(--accent);
@@ -1023,7 +1025,7 @@ button{ font-family: inherit; }
 .sch-date-line{
   display: flex; align-items: baseline; flex-wrap: wrap;
   gap: clamp(4px, .8vw, 10px);
-  font-size: clamp(9px, 1.1vw, 11px);
+  font-size: clamp(10px, 1.1vw, 11px);
   letter-spacing: clamp(.16em, 1vw, .28em);
   text-transform: uppercase;
   color: var(--ink-3);
@@ -1104,7 +1106,7 @@ button{ font-family: inherit; }
   box-shadow: var(--shadow-md);
 }
 .loc-tag{
-  font-size: clamp(8.5px, 1.1vw, 10px);
+  font-size: clamp(9.5px, 1.1vw, 10px);
   letter-spacing: clamp(.3em, 1.2vw, .44em);
   text-transform: uppercase;
   color: var(--accent);
@@ -1139,7 +1141,7 @@ button{ font-family: inherit; }
   background: var(--accent);
   color: #fff;
   font-family: var(--font-body);
-  font-size: clamp(10px, 1.3vw, 11.5px);
+  font-size: clamp(10.5px, 1.3vw, 11.5px);
   font-weight: 600;
   letter-spacing: clamp(.18em, 1vw, .22em);
   text-transform: uppercase;
@@ -1161,7 +1163,7 @@ button{ font-family: inherit; }
   background: transparent;
   color: var(--accent-deep);
   font-family: var(--font-body);
-  font-size: clamp(9.5px, 1.2vw, 11px);
+  font-size: clamp(10px, 1.2vw, 11px);
   font-weight: 600;
   letter-spacing: clamp(.18em, 1vw, .22em);
   text-transform: uppercase;
@@ -1185,7 +1187,7 @@ button{ font-family: inherit; }
 }
 .field-group{ display: grid; gap: clamp(6px, 1vw, 8px); }
 .field-label{
-  font-size: clamp(9px, 1.1vw, 10px);
+  font-size: clamp(10px, 1.1vw, 10px);
   letter-spacing: clamp(.24em, 1vw, .32em);
   text-transform: uppercase;
   color: var(--ink-3); font-weight: 600;
@@ -1229,7 +1231,7 @@ select.field option{ background: #fff; color: var(--ink); }
 
 .tg-note{
   font-family: var(--font-km);
-  font-size: clamp(11px, 1.3vw, 12.5px);
+  font-size: clamp(11.5px, 1.3vw, 12.5px);
   color: var(--ink-3);
   margin: clamp(16px, 2.5vw, 22px) 0 0;
   text-align: center;
@@ -1237,6 +1239,7 @@ select.field option{ background: #fff; color: var(--ink); }
   word-break: break-word;
 }
 .tg-note strong{ color: var(--accent-deep); font-weight: 700; }
+.tg-note a{ color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
 
 /* ============================================================
    WISHES
@@ -1282,7 +1285,7 @@ select.field option{ background: #fff; color: var(--ink); }
   font-size: clamp(12px, 1.3vw, 13.5px);
 }
 .wish-date{
-  font-size: clamp(9px, 1.1vw, 10.5px);
+  font-size: clamp(10px, 1.1vw, 10.5px);
   color: var(--ink-3); letter-spacing: .1em; white-space: nowrap;
 }
 .wish-text{
@@ -1330,7 +1333,7 @@ footer{
   margin: clamp(14px, 2.5vw, 22px) 0 0;
 }
 .foot-small{
-  font-size: clamp(8.5px, 1vw, 10px);
+  font-size: clamp(9px, 1vw, 10px);
   letter-spacing: clamp(.22em, 1vw, .3em);
   text-transform: uppercase;
   color: var(--ink-3);
@@ -1374,7 +1377,7 @@ footer{
   background: transparent;
   color: var(--ink-3);
   font-family: var(--font-body);
-  font-size: clamp(7px, .9vw, 9px);
+  font-size: clamp(8px, .9vw, 9px);
   font-weight: 600;
   letter-spacing: clamp(.04em, .6vw, .08em);
   text-transform: uppercase;
@@ -1473,21 +1476,41 @@ footer{
 }
 
 /* ============================================================
-   MOBILE RESPONSIVE
+   MOBILE — SAME STRUCTURE AS DESKTOP, ONLY SPACING ADAPTS
    ============================================================ */
+@media (max-width: 900px){
+  /* vertical side labels would overlap the text on a narrow screen */
+  .side-label{ display: none; }
+}
+
 @media (max-width: 640px){
-  .person{
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .person.reverse .person-media{ order: 1; }
-  .person.reverse .person-info{ order: 2; }
-
-  .gallery{
-    grid-template-columns: repeat(2, 1fr);
+  .wrap{
+    width: calc(100% - 28px);
+    padding: 52px 0;
   }
 
-  .countdown{
-    grid-template-columns: repeat(4, 1fr);
+  /* Couple keeps 2 columns exactly like desktop */
+  .couple-list{ gap: 48px; }
+  .person{ gap: 14px; }
+  .person-media{ border-radius: 12px; }
+
+  /* Gallery keeps 4 columns exactly like desktop */
+  .gallery{ gap: 5px; }
+  .gallery-item{ border-radius: 8px; }
+  .gallery-item figcaption{
+    left: 6px;
+    bottom: 4px;
+    font-size: 10px;
   }
+
+  .sch-item{
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+  }
+
+  .card{ border-radius: 16px; }
+  .location-card{ border-radius: 16px; }
+
+  .tg-note strong{ word-break: break-all; }
+  .tg-note a{ word-break: break-all; }
 }
