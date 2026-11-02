@@ -543,12 +543,12 @@ const CONFIG = {
   const guestPill = document.getElementById('guestName');
   if (guestPill) guestPill.textContent = name;
 
-  /* 2) Open Invitation (enter) screen */
+  /* 2) Open Invitation (enter) screen — "Dear" style */
   const enterGuest = document.getElementById('enterGuest');
   if (enterGuest) {
     const label = document.createElement('span');
-    label.className = 'guest-label';
-    label.textContent = 'ជូនចំពោះ · To';
+    label.className = 'guest-eyebrow';
+    label.textContent = 'ជូនចំពោះ · Dear';
 
     const nameEl = document.createElement('span');
     nameEl.className = 'guest-name';
