@@ -40,7 +40,6 @@
 
 <!-- ============================================================
      ✦ ENTER SCREEN — OPENING INVITATION ✦
-     Layout matches the reference sketch.
      ============================================================ -->
 <div id="enterScreen">
 
@@ -82,16 +81,16 @@
     <!-- Khmer subtitle -->
     <div class="enter-subtitle">
        <span class="banner-khmer">សូមគោរពអញ្ជើញ</span>
-    </div>  
+    </div>
 
     <!-- Gold banner -->
     <div class="enter-banner">
       <span class="banner-khmer" id="enterGuestName">ភ្ញៀវកិត្តិយស</span>
     </div>
 
-    <!-- Date · location -->
+    <!-- Date · location  (24 Feb 2029 = Saturday) -->
     <div class="enter-meta">
-      <span>Saturday, 30 February 2029</span>
+      <span>Saturday, 24 February 2029</span>
       <span class="dot" aria-hidden="true">✦</span>
       <span>Phnom Penh</span>
     </div>
@@ -158,7 +157,7 @@
     <div class="intro-names">Odam <em>&amp;</em> Phorn</div>
     <div class="intro-rule"></div>
     <div class="intro-sub">សិរីមង្គល · អាពាហ៍ពិពាហ៍</div>
-    <div class="intro-date">30 · 02 · 2029</div>
+    <div class="intro-date">24 · 02 · 2029</div>
   </div>
   <div class="intro-controls">
     <button class="ghost-btn on" id="introSound" type="button">
@@ -215,7 +214,7 @@
         <span>PHORN</span>
       </h1>
       <div class="cover-meta">
-        <span>30 · 02 · 2029</span>
+        <span>24 · 02 · 2029</span>
         <span class="cover-dot">✦</span>
         <span>Phnom Penh</span>
       </div>
@@ -258,7 +257,7 @@
       </h1>
 
       <p class="hero-khmer">សិរីមង្គល អាពាហ៍ពិពាហ៍</p>
-      <p class="hero-date">Saturday · 30 · 02 · 2029</p>
+      <p class="hero-date">Saturday · 24 · 02 · 2029</p>
 
       <div class="countdown">
         <div class="cd"><div class="cd-num" id="cdD">--</div><div class="cd-lbl">Days</div></div>
@@ -281,7 +280,7 @@
     <div class="marquee-track">
       <span>The Wedding of Odam &amp; Phorn</span>
       <span class="marquee-dot">✦</span>
-      <span>30 · 02 · 2029</span>
+      <span>24 · 02 · 2029</span>
       <span class="marquee-dot">✦</span>
       <span>Phnom Penh</span>
       <span class="marquee-dot">✦</span>
@@ -289,7 +288,7 @@
       <span class="marquee-dot">✦</span>
       <span>The Wedding of Odam &amp; Phorn</span>
       <span class="marquee-dot">✦</span>
-      <span>30 · 02 · 2029</span>
+      <span>24 · 02 · 2029</span>
       <span class="marquee-dot">✦</span>
       <span>Phnom Penh</span>
       <span class="marquee-dot">✦</span>
@@ -317,7 +316,7 @@
         <p class="card-text">ចូលរួមជាភ្ញៀវកិត្តិយសក្នុងពិធីអាពាហ៍ពិពាហ៍របស់យើងខ្ញុំ</p>
         <p class="card-names">Touch Odam <em>&amp;</em> Phoey Phorn</p>
         <p class="card-text">
-          ថ្ងៃសៅរ៍ ទី ៣០ ខែកុម្ភៈ ឆ្នាំ ២០២៩<br>
+          ថ្ងៃសៅរ៍ ទី ២៤ ខែកុម្ភៈ ឆ្នាំ ២០២៩<br>
           វេលាម៉ោង ៥:០០ ល្ងាច
         </p>
         <p class="card-cta">វត្តមានរបស់លោក/លោកស្រី គឺជាកិត្តិយសដ៏ខ្ពង់ខ្ពស់</p>
@@ -384,7 +383,7 @@
           <div class="sch-num">01</div>
           <div class="sch-content">
             <div class="sch-date-line">
-              <span class="sch-day">30</span>
+              <span class="sch-day">24</span>
               <span class="sch-month">Feb</span>
               <span class="sch-sep">·</span>
               <span class="sch-time">06:30 AM</span>
@@ -398,7 +397,7 @@
           <div class="sch-num">02</div>
           <div class="sch-content">
             <div class="sch-date-line">
-              <span class="sch-day">30</span>
+              <span class="sch-day">24</span>
               <span class="sch-month">Feb</span>
               <span class="sch-sep">·</span>
               <span class="sch-time">04:00 PM</span>
@@ -412,7 +411,7 @@
           <div class="sch-num">03</div>
           <div class="sch-content">
             <div class="sch-date-line">
-              <span class="sch-day">30</span>
+              <span class="sch-day">24</span>
               <span class="sch-month">Feb</span>
               <span class="sch-sep">·</span>
               <span class="sch-time">05:00 PM</span>
@@ -509,7 +508,9 @@
           </div>
           <button class="btn" type="submit">ផ្ញើការបញ្ជាក់</button>
         </form>
-        <p class="tg-note">ឬទាក់ទងតាម Telegram <strong>@https://t.me/touch_odam</strong></p>
+        <p class="tg-note">ឬទាក់ទងតាម Telegram
+          <strong><a href="https://t.me/touch_odam" target="_blank" rel="noopener">@touch_odam</a></strong>
+        </p>
       </div>
     </div>
   </section>
@@ -589,9 +590,10 @@
 <script>
 /* ============================================================
    CONFIG
+   24 February 2029 is a real Saturday.
    ============================================================ */
 const CONFIG = {
-  weddingDate: '2026-02-14T17:00:00+07:00',
+  weddingDate: '2029-02-24T17:00:00+07:00',
   wishesKey: 'wedding_wishes_v3',
   introSafetyMs: 60000,
 };
@@ -772,26 +774,41 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ============================================================
-   COUNTDOWN
+   COUNTDOWN  (fixed)
    ============================================================ */
 (function () {
-  const target = new Date(CONFIG.weddingDate).getTime();
   const $d = document.getElementById('cdD');
   const $h = document.getElementById('cdH');
   const $m = document.getElementById('cdM');
   const $s = document.getElementById('cdS');
+  if (!$d || !$h || !$m || !$s) return;
 
-  if (isNaN(target)) { console.error('[countdown] Invalid date'); return; }
+  const target = new Date(CONFIG.weddingDate).getTime();
+  if (!Number.isFinite(target)) {
+    console.error('[countdown] Invalid weddingDate:', CONFIG.weddingDate);
+    return;
+  }
+
+  const pad = n => String(n).padStart(2, '0');
 
   function tick() {
     const diff = Math.max(0, target - Date.now());
-    $d.textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
-    $h.textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
-    $m.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
-    $s.textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+    $d.textContent = pad(Math.floor(diff / 86400000));
+    $h.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    $m.textContent = pad(Math.floor((diff % 3600000) / 60000));
+    $s.textContent = pad(Math.floor((diff % 60000) / 1000));
   }
+
   tick();
   setInterval(tick, 1000);
+
+  // Re-sync immediately when the phone wakes up / tab regains focus,
+  // otherwise mobile browsers freeze timers in the background.
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tick();
+  });
+  window.addEventListener('focus', tick);
+  window.addEventListener('pageshow', tick);
 })();
 
 /* ============================================================
