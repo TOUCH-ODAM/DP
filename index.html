@@ -4,46 +4,142 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#F7F4EE" />
-<meta name="description" content="Wedding invitation of Touch Odam & Phoey Phorn" />
 <title>Touch Odam &amp; Phoey Phorn — Wedding Invitation</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Battambang:wght@400;700&family=Moul&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Moul&family=Kantumruy+Pro:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+<!-- Shared SVG gradient defs -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true">
+  <defs>
+    <linearGradient id="ringGoldA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5E8CC"/>
+      <stop offset="40%" stop-color="#D4B77E"/>
+      <stop offset="100%" stop-color="#A8843E"/>
+    </linearGradient>
+    <linearGradient id="ringGoldB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EBD9B4"/>
+      <stop offset="40%" stop-color="#C9A96A"/>
+      <stop offset="100%" stop-color="#8B6F3F"/>
+    </linearGradient>
+    <linearGradient id="petalA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FBD5E0"/>
+      <stop offset="100%" stop-color="#E8A0B8"/>
+    </linearGradient>
+    <linearGradient id="petalB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5C6D5"/>
+      <stop offset="100%" stop-color="#D97F9E"/>
+    </linearGradient>
+  </defs>
+</svg>
+
 <!-- ============================================================
-     ENTER SCREEN (unlocks audio)
+     ✦ ENTER SCREEN — OPENING INVITATION ✦
+     Layout matches the reference sketch.
      ============================================================ -->
 <div id="enterScreen">
-  <div class="enter-inner">
-    <div class="enter-eyebrow">The Wedding Of</div>
-    <div class="enter-names">Odam <em>&amp;</em> Phorn</div>
-    <div class="enter-rule"></div>
-    <p class="enter-khmer">សិរីមង្គល · អាពាហ៍ពិពាហ៍</p>
 
-    <div class="enter-window-wrap">
-      <div class="enter-window">
-        <span class="window-label">ជូនចំពោះ · TO</span>
-        <span class="window-name" id="enterGuestName">ភ្ញៀវកិត្តិយស</span>
-        <div class="window-shine"></div>
-      </div>
+  <!-- Decorative TOP border -->
+  <div class="enter-orn enter-orn-top" aria-hidden="true">
+    <span class="orn-line"></span>
+    <svg class="orn-motif" viewBox="0 0 100 20">
+      <circle cx="30" cy="10" r="1.8" fill="currentColor"/>
+      <path d="M50 4 L56 10 L50 16 L44 10 Z" fill="currentColor"/>
+      <circle cx="70" cy="10" r="1.8" fill="currentColor"/>
+    </svg>
+    <span class="orn-line"></span>
+  </div>
+
+  <div class="enter-inner">
+
+    <!-- Khmer title -->
+    <p class="enter-khmer-title">ពិធីមង្គលការ</p>
+
+    <!-- English names -->
+    <h1 class="enter-names">
+      TOUCH ODAM <span class="amp">&amp;</span> PHOEY PHORN
+    </h1>
+
+    <!-- Overlapping gold rings -->
+    <svg class="enter-rings" viewBox="0 0 240 130" aria-hidden="true">
+      <g transform="rotate(-18 82 65)">
+        <ellipse cx="82" cy="65" rx="44" ry="50" fill="none"
+                 stroke="url(#ringGoldA)" stroke-width="6"/>
+        <ellipse cx="74" cy="30" rx="8" ry="3" fill="#fff" opacity=".55"/>
+      </g>
+      <g transform="rotate(18 158 65)">
+        <ellipse cx="158" cy="65" rx="44" ry="50" fill="none"
+                 stroke="url(#ringGoldB)" stroke-width="6"/>
+        <ellipse cx="150" cy="30" rx="8" ry="3" fill="#fff" opacity=".55"/>
+      </g>
+    </svg>
+
+    <!-- Khmer subtitle -->
+    <p class="enter-subtitle">សិរីមង្គល អាពាហ៍ពិពាហ៍</p>
+
+    <!-- Gold banner -->
+    <div class="enter-banner">
+      <div class="banner-khmer">សូមគោរពអញ្ជើញ</div>
+      <div class="banner-en">INVITATION</div>
     </div>
 
+    <!-- Guest name -->
+    <div class="enter-guest">
+      <span class="guest-label">ជូនចំពោះ</span>
+      <span class="guest-name" id="enterGuestName">ភ្ញៀវកិត្តិយស</span>
+    </div>
+
+    <!-- Date · location -->
+    <div class="enter-meta">
+      <span>Saturday, 14 February 2026</span>
+      <span class="dot" aria-hidden="true">✦</span>
+      <span>Phnom Penh</span>
+    </div>
+
+    <!-- Hand-pointer CTA -->
     <button id="enterBtn" class="enter-btn" type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 18V5l12-2v13" />
-        <circle cx="6" cy="18" r="3" />
-        <circle cx="18" cy="16" r="3" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 11V6a2 2 0 1 1 4 0v5"/>
+        <path d="M13 11V4a2 2 0 1 1 4 0v7"/>
+        <path d="M17 11V6a2 2 0 1 1 4 0v9a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5l3-4"/>
       </svg>
       <span>បើកអញ្ជើញ · Open Invitation</span>
     </button>
 
     <p class="enter-note">Tap to enable sound</p>
   </div>
+
+  <!-- Lotus — bottom right -->
+  <div class="enter-lotus" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <g transform="translate(60, 72)">
+        <ellipse cx="-22" cy="4"  rx="11" ry="24" fill="url(#petalA)" transform="rotate(-55)"/>
+        <ellipse cx="22"  cy="4"  rx="11" ry="24" fill="url(#petalA)" transform="rotate(55)"/>
+        <ellipse cx="-12" cy="-4" rx="10" ry="26" fill="url(#petalB)" transform="rotate(-28)"/>
+        <ellipse cx="12"  cy="-4" rx="10" ry="26" fill="url(#petalB)" transform="rotate(28)"/>
+        <ellipse cx="0"   cy="-10" rx="11" ry="28" fill="url(#petalB)"/>
+        <ellipse cx="0"   cy="0"   rx="4"  ry="5"  fill="#FFF5D6" opacity=".9"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Decorative BOTTOM border -->
+  <div class="enter-orn enter-orn-bottom" aria-hidden="true">
+    <span class="orn-line"></span>
+    <svg class="orn-motif" viewBox="0 0 100 20">
+      <circle cx="30" cy="10" r="1.8" fill="currentColor"/>
+      <path d="M50 4 L56 10 L50 16 L44 10 Z" fill="currentColor"/>
+      <circle cx="70" cy="10" r="1.8" fill="currentColor"/>
+    </svg>
+    <span class="orn-line"></span>
+  </div>
+
 </div>
 
 <!-- ============================================================
@@ -51,16 +147,17 @@
      ============================================================ -->
 <section id="intro" aria-label="Intro video">
   <div class="intro-frame">
-    <video id="introVideo" playsinline webkit-playsinline x5-playsinline muted preload="metadata" poster="DP5.JPG">
+    <video id="introVideo" playsinline webkit-playsinline x5-playsinline muted
+           preload="metadata" poster="DP5.JPG">
       <source src="wedding.mp4" type="video/mp4" />
+      <source src="Wedding1.mp4" type="video/mp4" />
+      <source src="wedding.webm" type="video/webm" />
     </video>
   </div>
   <div class="intro-veil"></div>
-
   <div class="intro-frame-lines" aria-hidden="true">
     <span></span><span></span><span></span><span></span>
   </div>
-
   <div class="intro-content">
     <div class="intro-eyebrow">The Wedding Of</div>
     <div class="intro-names">Odam <em>&amp;</em> Phorn</div>
@@ -68,23 +165,23 @@
     <div class="intro-sub">សិរីមង្គល · អាពាហ៍ពិពាហ៍</div>
     <div class="intro-date">14 · 02 · 2026</div>
   </div>
-
   <div class="intro-controls">
     <button class="ghost-btn on" id="introSound" type="button">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M11 5L6 9H2v6h4l5 4V5z" />
-        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
       </svg>
       <span>Sound on</span>
     </button>
     <button class="ghost-btn" id="skipIntro" type="button">
       <span>Skip intro</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 12h14M12 5l7 7-7 7" />
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
       </svg>
     </button>
   </div>
-
   <div class="intro-bar"><span id="introProgress"></span></div>
 </section>
 
@@ -95,10 +192,11 @@
 </audio>
 
 <button id="audioToggle" aria-label="Music toggle">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M11 5L6 9H2v6h4l5 4V5z" />
-    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" class="wave1" />
-    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" class="wave2" />
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" class="wave1"/>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" class="wave2"/>
   </svg>
 </button>
 
@@ -121,21 +219,20 @@
         <span class="cover-amp">&amp;</span>
         <span>PHORN</span>
       </h1>
-
       <div class="cover-meta">
         <span>14 · 02 · 2026</span>
         <span class="cover-dot">✦</span>
         <span>Phnom Penh</span>
       </div>
-
       <p class="cover-khmer">សិរីមង្គល · អាពាហ៍ពិពាហ៍</p>
     </div>
 
     <div class="cover-bottom">
       <button class="open-btn" id="openBtn" type="button">
         <span>បើកសំបុត្រ</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M12 5l7 7-7 7" />
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
       </button>
     </div>
@@ -195,7 +292,6 @@
       <span class="marquee-dot">✦</span>
       <span>សិរីមង្គល អាពាហ៍ពិពាហ៍</span>
       <span class="marquee-dot">✦</span>
-
       <span>The Wedding of Odam &amp; Phorn</span>
       <span class="marquee-dot">✦</span>
       <span>14 · 02 · 2026</span>
@@ -222,18 +318,13 @@
       <div class="card reveal">
         <p class="card-khmer-title">សិរីមង្គល អាពាហ៍ពិពាហ៍</p>
         <p class="card-text">យើងខ្ញុំមានកិត្តិយសសូមគោរពអញ្ជើញ</p>
-
         <div class="guest-pill" id="guestName">ភ្ញៀវកិត្តិយស</div>
-
         <p class="card-text">ចូលរួមជាភ្ញៀវកិត្តិយសក្នុងពិធីអាពាហ៍ពិពាហ៍របស់យើងខ្ញុំ</p>
-
         <p class="card-names">Touch Odam <em>&amp;</em> Phoey Phorn</p>
-
         <p class="card-text">
-          ថ្ងៃសៅរ៍ ទី ១៤ ខែ កុម្ភៈ ឆ្នាំ ២០២៦<br />
+          ថ្ងៃសៅរ៍ ទី ១៤ ខែកុម្ភៈ ឆ្នាំ ២០២៦<br>
           វេលាម៉ោង ៥:០០ ល្ងាច
         </p>
-
         <p class="card-cta">វត្តមានរបស់លោក/លោកស្រី គឺជាកិត្តិយសដ៏ខ្ពង់ខ្ពស់</p>
       </div>
     </div>
@@ -261,7 +352,7 @@
             <span class="person-role">The Groom</span>
             <h3 class="person-name">ទូច ឧត្តម</h3>
             <div class="person-en">Touch Odam</div>
-            <p class="person-parents">ជាកូនប្រុសរបស់<br />លោក ____ និង លោកស្រី ____</p>
+            <p class="person-parents">ជាកូនប្រុសរបស់<br>លោក ____ និង លោកស្រី ____</p>
           </div>
         </article>
 
@@ -274,7 +365,7 @@
             <span class="person-role">The Bride</span>
             <h3 class="person-name">ភឺន ផន</h3>
             <div class="person-en">Phoey Phorn</div>
-            <p class="person-parents">ជាកូនស្រីរបស់<br />លោក ____ និង លោកស្រី ____</p>
+            <p class="person-parents">ជាកូនស្រីរបស់<br>លោក ____ និង លោកស្រី ____</p>
           </div>
         </article>
       </div>
@@ -378,8 +469,9 @@
         <p class="loc-addr">ផ្លូវសុធារស · រាជធានីភ្នំពេញ</p>
         <a class="btn-outline" href="https://maps.app.goo.gl/pVzjF5GjgRZCWheq5?g_st=it" target="_blank" rel="noopener">
           <span>Open in Google Maps</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 17L17 7M17 7H8M17 7v9" />
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 17L17 7M17 7H8M17 7v9"/>
           </svg>
         </a>
       </div>
@@ -458,7 +550,7 @@
 
   <footer>
     <div class="foot-mark">Odam <span>&amp;</span> Phorn</div>
-    <p class="foot-text">សូមអរគុណយ៉ាងជ្រាលជ្រៅ<br />ចំពោះវត្តមាន និងពាក្យជូនពរដ៏ផ្អែមល្ហែម</p>
+    <p class="foot-text">សូមអរគុណយ៉ាងជ្រាលជ្រៅ<br>ចំពោះវត្តមាន និងពាក្យជូនពរដ៏ផ្អែមល្ហែម</p>
     <div class="foot-small">Made by Dom · 2026</div>
   </footer>
 </div>
@@ -466,27 +558,27 @@
 <!-- NAV DOCK -->
 <nav id="nav">
   <button class="nav-btn active" data-target="home">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z" /></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5V20a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z"/></svg>
     <span>Home</span>
   </button>
   <button class="nav-btn" data-target="couple">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" /></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
     <span>Couple</span>
   </button>
   <button class="nav-btn" data-target="schedule">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="1" /><path d="M16 2v4M8 2v4M3 10h18" /></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="1"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
     <span>Schedule</span>
   </button>
   <button class="nav-btn" data-target="gallery">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" /></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
     <span>Gallery</span>
   </button>
   <button class="nav-btn" data-target="location">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 22s-7-7.75-7-13a7 7 0 0 1 14 0c0 5.25-7 13-7 13z" /><circle cx="12" cy="9" r="2.5" /></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 22s-7-7.75-7-13a7 7 0 0 1 14 0c0 5.25-7 13-7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
     <span>Venue</span>
   </button>
   <button class="nav-btn" data-target="rsvp">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
     <span>RSVP</span>
   </button>
 </nav>
@@ -494,7 +586,7 @@
 <!-- LIGHTBOX -->
 <div id="lightbox">
   <button class="lb-close" id="lbClose" aria-label="Close">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
   </button>
   <img id="lbImg" src="" alt="" />
 </div>
@@ -541,13 +633,8 @@ const music       = document.getElementById('bgMusic');
 const audioToggle = document.getElementById('audioToggle');
 const openBtn     = document.getElementById('openBtn');
 
-let muted        = true;
-let introEnded   = false;
-let introReady   = false;
-let introStarted = false;
-let safetyTimer  = null;
-let soundOn      = true;
-let musicStarted = false;
+let muted = true, introEnded = false, introReady = false,
+    introStarted = false, safetyTimer = null, soundOn = true, musicStarted = false;
 
 function syncSoundBtn(){
   introSound.classList.toggle('on', soundOn);
@@ -729,7 +816,6 @@ const spy = new IntersectionObserver(entries => {
       b.classList.toggle('active', b.dataset.target === e.target.id));
   });
 }, { threshold: 0.35, rootMargin: '-20% 0px -35% 0px' });
-
 document.querySelectorAll('#site section[id]').forEach(s => spy.observe(s));
 
 /* ============================================================
@@ -742,7 +828,6 @@ const revealObs = new IntersectionObserver(entries => {
     revealObs.unobserve(e.target);
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 /* ============================================================
@@ -777,7 +862,6 @@ document.getElementById('rsvpForm').addEventListener('submit', e => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
   console.log('RSVP:', data);
-
   e.target.innerHTML = `
     <div style="text-align:center;padding:40px 0;">
       <div style="width:56px;height:56px;margin:0 auto 20px;border:1px solid var(--accent);
@@ -817,7 +901,6 @@ function loadWishes() {
     wishList.innerHTML = '<div class="empty-msg">មិនទាន់មានពាក្យជូនព្រនៅឡើយទេ</div>';
     return;
   }
-
   wishList.innerHTML = items.map(w => `
     <div class="wish">
       <div class="wish-avatar">${escapeHtml(initials(w.name))}</div>
@@ -835,21 +918,17 @@ function loadWishes() {
 document.getElementById('wishForm').addEventListener('submit', e => {
   e.preventDefault();
   const f = new FormData(e.target);
-
   let items = [];
   try { items = JSON.parse(localStorage.getItem(CONFIG.wishesKey) || '[]'); } catch (err) {}
-
   items.unshift({
     name: f.get('name'),
     text: f.get('text'),
     date: new Date().toLocaleDateString('km-KH'),
   });
-
   localStorage.setItem(CONFIG.wishesKey, JSON.stringify(items));
   e.target.reset();
   loadWishes();
 });
-
 loadWishes();
 </script>
 </body>
