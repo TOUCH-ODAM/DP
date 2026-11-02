@@ -24,6 +24,9 @@
     <div class="enter-rule"></div>
     <p class="enter-khmer">សិរីមង្គល · អាពាហ៍ពិពាហ៍</p>
 
+    <!-- Guest name shown when ?guest= is in the URL -->
+    <div class="enter-guest" id="enterGuest"></div>
+
     <button id="enterBtn" class="enter-btn" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
            stroke-linecap="round" stroke-linejoin="round">
@@ -43,8 +46,16 @@
      ============================================================ -->
 <section id="intro" aria-label="Intro video">
   <div class="intro-frame">
-    <video id="introVideo" playsinline muted preload="auto" poster="DP5.JPG">
+    <video id="introVideo"
+           playsinline
+           webkit-playsinline
+           x5-playsinline
+           muted
+           preload="metadata"
+           poster="DP5.JPG">
+      <source src="wedding.mp4" type="video/mp4" />
       <source src="Wedding1.mp4" type="video/mp4" />
+      <source src="wedding.webm" type="video/webm" />
     </video>
   </div>
 
@@ -84,7 +95,7 @@
 
 <div id="progress"></div>
 
-<audio id="bgMusic" loop preload="auto">
+<audio id="bgMusic" loop preload="metadata">
   <source src="https://media.leangna.online/audio/nisai.mp3" type="audio/mpeg" />
 </audio>
 
@@ -510,19 +521,40 @@
    CONFIG
    ============================================================ */
 const CONFIG = {
-  weddingDate: '2029-02-30T17:00:00+07:00',
+  /* Fixed real date — 2029-02-30 does NOT exist (Feb has max 29 days) */
+  weddingDate: '2029-03-02T17:00:00+07:00',
   wishesKey: 'wedding_wishes_v3',
-  introSafetyMs: 15000,
+  /* 60s allows slow mobile networks to download the video */
+  introSafetyMs: 60000,
 };
 
 /* ============================================================
    GUEST NAME FROM URL
+   - Shows on the "Open Invitation" screen
+   - Shows on the Invitation card
    ============================================================ */
 (function () {
   const p = new URLSearchParams(location.search).get('guest');
-  if (p) {
-    document.getElementById('guestName').textContent =
-      decodeURIComponent(p).replace(/[-_]/g, ' ');
+  if (!p) return;
+
+  const name = decodeURIComponent(p).replace(/[-_]/g, ' ');
+
+  /* 1) Invitation card (existing) */
+  const guestPill = document.getElementById('guestName');
+  if (guestPill) guestPill.textContent = name;
+
+  /* 2) Open Invitation (enter) screen */
+  const enterGuest = document.getElementById('enterGuest');
+  if (enterGuest) {
+    const label = document.createElement('span');
+    label.className = 'guest-label';
+    label.textContent = 'ជូនចំពោះ · To';
+
+    const nameEl = document.createElement('span');
+    nameEl.className = 'guest-name';
+    nameEl.textContent = name;
+
+    enterGuest.append(label, nameEl);
   }
 })();
 
@@ -558,6 +590,38 @@ function syncSoundBtn(){
 syncSoundBtn();
 
 /* ============================================================
+   VIDEO DIAGNOSTICS — logs to console for debugging on mobile
+   ============================================================ */
+introVideo.addEventListener('loadedmetadata', () => {
+  console.log('[intro] metadata loaded — duration:', introVideo.duration, 's');
+});
+introVideo.addEventListener('loadeddata', () => {
+  console.log('[intro] loadeddata — first frame ready');
+});
+introVideo.addEventListener('canplay', () => {
+  console.log('[intro] canplay — ready to play');
+});
+introVideo.addEventListener('playing', () => {
+  console.log('[intro] PLAYING ✅');
+});
+introVideo.addEventListener('waiting', () => {
+  console.warn('[intro] buffering (waiting)');
+});
+introVideo.addEventListener('stalled', () => {
+  console.warn('[intro] stalled — network slow');
+});
+introVideo.addEventListener('error', () => {
+  const e = introVideo.error;
+  console.error('[intro] ERROR', {
+    code: e ? e.code : '?',
+    message: e ? e.message : '?',
+    src: introVideo.currentSrc,
+    readyState: introVideo.readyState,
+    networkState: introVideo.networkState,
+  });
+});
+
+/* ============================================================
    TAP TO ENTER → start intro WITH SOUND
    ============================================================ */
 enterBtn.addEventListener('click', () => {
@@ -570,7 +634,10 @@ enterBtn.addEventListener('click', () => {
 
   clearTimeout(safetyTimer);
   safetyTimer = setTimeout(() => {
-    if (!introReady) endIntro();
+    if (!introReady) {
+      console.warn('[intro] safety timeout reached — ending intro');
+      endIntro();
+    }
   }, CONFIG.introSafetyMs);
 });
 
@@ -588,7 +655,11 @@ function startIntroVideo(){
 
   const p = introVideo.play();
   if (p && typeof p.catch === 'function'){
-    p.catch(() => {
+    p.then(() => {
+      console.log('[intro] play() resolved — sound on');
+    }).catch((err) => {
+      console.warn('[intro] play() rejected:', err && err.name);
+      /* Fall back to muted playback if sound was blocked */
       introVideo.muted = true;
       introVideo.play().catch(() => endIntro());
     });
@@ -710,6 +781,11 @@ window.addEventListener('scroll', () => {
   const $h = document.getElementById('cdH');
   const $m = document.getElementById('cdM');
   const $s = document.getElementById('cdS');
+
+  if (isNaN(target)) {
+    console.error('[countdown] Invalid weddingDate:', CONFIG.weddingDate);
+    return;
+  }
 
   function tick() {
     const diff = Math.max(0, target - Date.now());
